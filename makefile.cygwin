@@ -1,0 +1,22 @@
+CPU = cygwin
+EXEC_SUFFIX = .exe
+#DIST_LIB = -L/usr/local/mingw/lib -mno-cygwin
+SRC_INC = ../include
+SRC_LIB = ../lib
+SRC_BIN = ../bin
+#GLOBAL_COPTS = -g -Wall
+# gprof only seems to work with cygwin
+#GLOBAL_COPTS = -O2 -Wall -pg
+#GLOBAL_COPTS = -g -Wall -mno-cygwin
+GLOBAL_COPTS = -O2 -Wall -mno-cygwin
+SOMELIBS_SD_NG_NM =  -L${SRC_LIB} $(DIST_LIB)  -leqn   -lm ${GLOBAL_COPTS}
+SOMELIBS_SD_NG =  -L${SRC_LIB}  $(DIST_LIB) -lMulti -leqn -lm ${GLOBAL_COPTS}
+SOMELIBS_SD_JVX =  -L${SRC_LIB}  $(DIST_LIB) -lexpat -lMTrans -lMulti -leqn -lm ${GLOBAL_COPTS}
+SOMELIBS_SD_NM_JVX =  -L${SRC_LIB}  $(DIST_LIB) -lexpat -leqn -lm ${GLOBAL_COPTS}
+
+#CFLAGS = ${GLOBAL_COPTS} -I../include -I/usr/local/mingw/include -mno-cygwin
+CFLAGS = ${GLOBAL_COPTS} -I../include 
+#CFLAGS = -g -I../include -pg -Wall
+#CFLAGS = -O2 -I../include -I/usr/local/mingw/include -mno-cygwin
+#COPTS = -O2 -I${SRC_INC} -I/usr/local/include -I/usr/X11R6/include
+#LDFLAGS = -mno-cygwin

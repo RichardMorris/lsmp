@@ -1,0 +1,279 @@
+\bfINTERSECT(1)\rm		\bfUni Liv Pure Maths Sing Group.\rm		\bfINTERSECT(1)\rm
+
+\bfNAME\rm
+	intersect - calculates the intersection of two implicitly
+		defined surfaces.
+
+\bfSYNOPSIS\rm
+	intersect [-c coarse] [-f fine] [-F faces] [-E edges] [-p precision]
+                [-D name val] {-G|-I|-e equation|filename}
+
+\bfDESCRIPTION\rm
+	\itintersect\rm calculates the curve of intersection of two
+	surfaces in three dimensions. The surfaces are defined by a
+	implicit polynomial equations of the form f(x,y,z) = 0. These
+	equations are expressed in standard mathematical notation.  The
+	program normally runs interactively and is designed to work
+	well with \itgeomview(1)\rm.
+
+\bfSTARTING THE PROGRAM\rm
+	Normally the program is started from \itgeomview(1)\rm by
+	selecting the \bfIntersect\rm option from the applications
+	panel. The output will be fed directly into geomview.
+
+	The program can also be started by typing \bfintersect\rm on the
+	command line. Typically the name of a file defining the
+	surface will be specified on the command line. If so the output
+	will be sent to the standard output and be in \itoogl(5)\rm format.
+	For example
+
+		% \bfintersect\rm \itdefinition\rm \bf>\rm \itfoo.oogl\rm
+
+\bfCOMMAND LINE OPTIONS\rm
+        The -D option specifies the default values for the parameters,
+        they should appear in pairs of names and values.
+
+	The \bf-c\rm, \bf-f\rm, \bf-F\rm \bf-e\rm options are used to specify
+	parameters which affect the execution, see the OTHER OPTIONS
+	section below for a discussion of their meaning. And the
+	\bf-p\rm option specifies how many decimal places are displayed.
+
+        The \bf-I\rm option displays the windows and allows interactive use.
+        The \bf-G\rm is only used when running from geomview.
+        The \bf-h\rm option displays a brief help message.
+        The \bf-e\rm option reads the definition from a string, which
+        should normally be enclosed in single or double quotes.
+
+\bfRUNNING THE PROGRAM\rm
+	Equations can be read in from definition files. The file can be
+	specified either by typing the name of the file in the window
+	marked \bfFile\rm, or by pressing the \bfLoad\rm button and
+	selecting the file from the directory browser which will be
+	displayed.  The definition file can be saved using the
+	\bfSave\rm button.  Alternatively the equation can be input
+	directly by typing it in the \bfEquation\rm window. See the
+	USING THE MOUSE section below for how to operate the edit window,
+	and also SYNTAX OF EQUATIONS.
+
+	A window with the names and values of the parameters will be
+	shown. These values and those specifying the bounds of the box
+	can all be changed by pressing the arrow buttons, as well as by
+	typing in directly.
+
+	Once all the parameters have been set the \bfRUN\rm button can
+	be pressed. This starts the calculations of the surface. A
+	small window appears which shows how far the calculation has
+	progressed.
+
+	Pressing the \bfShow\rm button will write out what has been
+	calculated so far, when running from geomview the partially
+	constructed surface will be shown.  Pressing control-Z from the
+	shell or sending signal 21 (TSTP) from kill(1) will do the same
+	and also report progress in the shell window before
+	interrupting.  The program can be restarted by typing \itfg\rm
+	in the shell or sending signal 28 (CONT).  The calculations can
+	be halted completely by pressing the \bfAbort\rm button, this will
+	write out the data so far.  The program can be quit by:
+	pressing control-C in the shell, sending signal 15 (TERM),
+	selecting \itquit\rm from the window boarder menu or killing
+	the process from geomview by clicking on the name (geomview
+	version 1.2.4 or later), all these will write out the data.
+	Sending signal 9 (KILL) will end the program immediately, two
+	temporary files will be left in /usr/tmp and the data will be
+	lost.
+
+	The \bfHelp\rm button brings up a help window which displays this
+	document. The \bfQuit\rm button quits the program. 
+
+\bfOTHER OPTIONS\rm
+	The \bfOption\rm button opens an options window where the various
+	parameters can be changed. The \itprecision\rm is the number of
+	decimal places displayed.  When either of triangle keys on
+	either side of a parameter are pressed then the parameter is
+	changed by one unit of the least significant digit displayed.
+
+	When being called from geomview there are two \itwrite modes\rm
+	which specify what geomview objects will be created: \itAdd\rm
+	will create a new object every time and \itReplace\rm will
+	create just one object which is replaced each time the program
+	is run. Pressing the \itNew\rm button will create a new object
+	but leave the write mode unchanged. The object is either named
+	"intersect" or takes the name of the definition file with the
+	possible addition of a number after the name.
+
+	When calculating the intersection the bounding box is divided
+	up into \itcoarse\rm segments in each direction and hence space
+	is divided into \itcoarse\rm^3 sub-boxes. Smooth pieces of the
+	intersection curve will be approximated by straight lines in
+	each of these sub-boxes. Increasing \itcoarse\rm will produce
+	finer meshes.  The accuracy with which the singular points are
+	found is determined by the \itfine\rm parameter. The accuracy
+	with which points on the edges of the sub-boxes is determined
+	by the \itedges\rm parameter and the accuracy with which nodes
+	(places where one of the partial derivatives vanish) are found
+	on the faces of the box are determined by the \itfaces\rm
+	parameter.  All these parameters should be powers of two and
+	the program requires that \itcoarse\rm < \itfine\rm <
+	\itfaces\rm < \itedges\rm.  These parameters greatly affect
+	execution speed and should be reduced for faster running.
+
+\bfSYNTAX OF EQUATIONS\rm
+        The definition of the surface consists of five parts,
+
+        1) Two equations depending on three variables which defines
+		the two surfaces.
+
+        2) Macro definitions of the form 'mac = ...;' or fun(s,t) = ...;'
+
+        3) Specification of the names of variables and the ranges
+                they take e.g. 'x = [-1,1];'.
+
+        4) Default values for the constants e.g. 'a = 1;'.
+
+        5) Values used internally by the program e.g. 'intersect_coarse = 2;'.
+
+        The first part must be present, the other parts are optional,
+        but must be in the order specified above.
+        
+        Each equation is written in mathematical notation, consisting
+        of:- numbers, variable names, the standard operators ('+', '-',
+        '*', '/', '^' and '=') as well as bracketing with '(' and ')'.
+        The '*' for multiplication is optional, the product of variables
+        can be written as 'x y', but note that if the space was omitted
+        this expression would be treated like the single variable 'xy'.
+        The equations must contain one '=' and be terminated by a
+        semi-colon.  Names of variable start with a letter and can
+        contain letters, numbers, and the underscore '_', case is
+        significant.  For details of the general syntax of equations
+        see eqn(5).
+
+        A number of functions can be used in parts 1) and 2) these are
+        cos(x), sin(x), tan(x), acos(x),asin(x),atan(x),
+        sec(x),cosec(x),cot(x), cosh(x),sinh(x),tanh(x),
+        acosh(x),asinh(x),atanh(x), sqrt(x),exp(x),pow(x,n),ln(x).  
+        The constant Pi can also be used. Note as only polynomial equations
+	can be drawn any of these functions can only take constants
+	as parameters.
+
+	1) The equations should be an expression involving: the three
+	space variables (by default 'x', 'y' and 'z'); the names of macro
+	e.g. 'mac' or 'fun(x,y)'; a number of constants.
+
+        2) Macro's can be used. These are of two types either of the
+        form 'r = a x^2 + y', or of the form 'f(t) = a t^2'. If, say,
+        'r' or 'f(x)' appears in the any of the equations already
+        defined then 'a x^2 + y' or 'a x^2' will be substituted, note
+        in the second form the 't' in the macro definition has been replaced
+        by 'x'. Note than the macros are substituted in the equations
+        given before the macro rather than apply them to what comes
+        after as is more typical.
+
+        3) After all the macros have been substituted, the
+        equation should depend on three variables and a number of
+        constants. By default the names of the variables are 'x', 'y'
+        and 'z', but the names can be changed. For example the equation
+        'a = [-1,1];' would specify the name of the first variable to
+        be 'a', the two numbers which make up the range must be
+        present but their values are not significant.
+
+        The program works best if the bounds are chosen asymmetrically.
+        This is because planes which occur in a binary sub-division of
+        space have a special significance and the algorithm assumes that
+        the surface intersects these planes generically.  For example
+        if the bounding box is [-1,1]X[-1,1]X[-1,1] then the special
+        planes are x,y,z = -1,1,0,-1/2,1/2,... If we tried to calculate
+        the unit sphere 'x^2+y^2+z^2=1' in this box we would expect
+        problems as one of the partial derivatives vanishes on each of
+        the planes x=0, y=0, z=0. By default the bounding box is
+	[-1.14,1.03]X[-1.13,1.04]X[-1.12,1.05].
+
+	4) Any names still appearing which are not the names of the
+	variables are assumed to be constants, the program will display
+	a window where the values of these constants can be specified.
+	Default values for the constants can now be given. For example
+	'a = 1;' gives the default value for 'a' as 1.
+
+	Once the values of the constants have been given and all the
+	functions evaluated the equations should be polynomials in
+	three variables.
+
+	5) Finally values used internally by the program can be
+	specified, these are 'intersect_coarse', 'intersect_fine',
+	'intersect_faces' 'intersect_edges' and 'intersect_precision'. Which
+	specify the values coarse, fine, faces, and edges execution
+	parameters and the number of decimal places which appear.
+
+        Comments are allowed and start with a '#' and continue to the
+        end of the line. Newlines are not significant and are treated
+        like white space.
+
+        The following defines the intersection of two spheres 
+
+                # Part 1 Defining equations
+		sphere(0,0,0,r);
+		sphere(1,1,1,r);
+
+                # Macro definition
+		sphere(a,b,c,r) = (X-a)^2 + (Y-b)^2 + (Z-c)^2 - r^2;
+
+                # Variable definitions
+		X=[-3.14,3.03];
+		Y=[-3.13,3.04];
+		Z=[-3.12,3.05];
+
+                # Default values for constants
+		r = 0.9;
+
+                # Internal constants
+                intersect_coarse = 16;
+
+\bfUSING THE MOUSE\rm
+	There are several types of objects which appear. \itButtons\rm
+	stick out of the form and are activated by pressing a
+	mouse button while the mouse is over the button.
+
+	\itInput\rm regions are depressed into the form and coloured
+	purple. Clicking with a mouse button will select the
+	input region (showing it in a different colour) and position a
+	cursor under the mouse. Characters typed from the input will
+	appear after the cursor (for input regions displaying only a
+	number, the region must display a valid number at all time).
+	Whole regions can be selected by pressing a mouse button down,
+	holding it down while the desired region is selected and then
+	releasing it. The selected text will be highlighted and can be
+	deleted using the backspace or delete keys. Pressing the
+	'enter' key or clicking with the mouse in another part of the
+	window will finish the input.
+
+	There is also an \itEdit\rm region where the equation is
+	displayed.  This is a multi-line input and works in much the
+	same way as above. To finish editing press the escape key.
+	Two lines can be joined together by using the 'control-J'
+	key.  Holding the 'shift' key down while pressing one of the
+	cursor keys will move to the top, bottom, left or right of the
+	input.  Long lines wrap round onto the next line. Lines may be
+	hidden above the top or below the bottom of the region, these
+	can be brought into view using the cursor keys.
+
+\bfSEE ALSO\rm
+	geomview(1/5), oogl(5), eqn(3), edit(3), fract(3), asurf(1),
+	Forms Library reference manual.
+	A new method for drawing algebraic surfaces, R.J.Morris,
+	(the file algsurf.tex in the source directory).
+
+\bfBUGS\rm
+	Problems may occur with calculating the surface if it is symmetrically
+	positioned within the box or if it contains patches where one
+	of the derivatives vanish over the whole patch. These can normally
+	be avoided by apply slight rotations or changing the bounding
+	box. Cuspidal edges can cause a tremendous slow down and are
+	not always drawn nicely. An improved version which will solve
+	these bugs is currently being worked on.
+
+\bfAUTHOR AND CREDITS\rm
+	R.J.Morris,
+	Department of Pure Mathematics, University of Liverpool,
+	P.O. Box 187, Liverpool, L69 3BX, England
+	e-mail rmorris@liverpool.ac.uk
+
+	23/7/93

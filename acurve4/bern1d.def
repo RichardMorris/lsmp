@@ -1,0 +1,10 @@
+(a (1-x)^2 + 2 b (1-x) x + c x^2);
+ x = [ 0.000000 , 1.000000 ];
+ y = [ 0.000000 , 1.000000 ];
+ a = -0.072170;
+ b = 0.000000;
+ c = 0.062925;
+ acurve_coarse = 80;
+ acurve_fine = 1000;
+ acurve_colour = 4;
+ acurve_precision = 6;

@@ -1,0 +1,648 @@
+Magic: 12321
+
+Internal Form Definition File
+    (do not change)
+
+Number of forms: 4
+
+=============== FORM ===============
+Name: main_panel
+Width: 610.000000
+Height: 420.000000
+Number of Objects: 20
+
+--------------------
+class: 1
+type: 1
+box: 0.000000 0.000000 610.000000 420.000000
+boxtype: 1
+colors: 47 47
+alignment: 4
+style: 0
+size: 11.000000
+lcol: 0
+label: 
+name: 
+callback: 
+argument: 
+
+--------------------
+class: 31
+type: 0
+box: 40.000000 320.000000 410.000000 30.000000
+boxtype: 2
+colors: 13 5
+alignment: 2
+style: 0
+size: 11.000000
+lcol: 0
+label: File
+name: deffile_input
+callback: filename_cb
+argument: 1
+
+--------------------
+class: 1026
+type: 0
+box: 20.000000 10.000000 570.000000 70.000000
+boxtype: 2
+colors: 13 5
+alignment: 0
+style: 3
+size: 11.000000
+lcol: 0
+label: Equation
+name: eqn_edit
+callback: filename_cb
+argument: 4
+
+--------------------
+class: 2
+type: 0
+box: 20.000000 370.000000 260.000000 30.000000
+boxtype: 0
+colors: 47 47
+alignment: 2
+style: 0
+size: 20.000000
+lcol: 4
+label: Acurve4
+name: 
+callback: 
+argument: 
+
+--------------------
+class: 11
+type: 0
+box: 540.000000 370.000000 50.000004 30.000000
+boxtype: 1
+colors: 47 47
+alignment: 4
+style: 0
+size: 11.000000
+lcol: 0
+label: Quit
+name: quit_button
+callback: exit_cb
+argument: 0
+
+--------------------
+class: 1025
+type: 0
+box: 100.000000 260.000000 209.999985 30.000000
+boxtype: 1
+colors: 47 4
+alignment: 2
+style: 0
+size: 11.000000
+lcol: 0
+label: x
+name: xmin_counter
+callback: bound_cb
+argument: 1
+
+--------------------
+class: 1025
+type: 0
+box: 320.000000 260.000000 209.999985 30.000000
+boxtype: 1
+colors: 47 4
+alignment: 1
+style: 0
+size: 11.000000
+lcol: 0
+label: 
+name: xmax_counter
+callback: bound_cb
+argument: 2
+
+--------------------
+class: 1025
+type: 0
+box: 100.000000 210.000000 209.999985 30.000000
+boxtype: 1
+colors: 47 4
+alignment: 2
+style: 0
+size: 11.000000
+lcol: 0
+label: y
+name: ymin_counter
+callback: bound_cb
+argument: 3
+
+--------------------
+class: 1025
+type: 0
+box: 320.000000 210.000000 209.999985 30.000000
+boxtype: 1
+colors: 47 4
+alignment: 1
+style: 0
+size: 11.000000
+lcol: 0
+label: 
+name: ymax_counter
+callback: bound_cb
+argument: 4
+
+--------------------
+class: 2
+type: 0
+box: 180.000000 290.000000 40.000000 20.000000
+boxtype: 0
+colors: 47 47
+alignment: 2
+style: 0
+size: 11.000000
+lcol: 0
+label: Low
+name: 
+callback: 
+argument: 
+
+--------------------
+class: 2
+type: 0
+box: 400.000000 290.000000 50.000000 20.000000
+boxtype: 0
+colors: 47 47
+alignment: 2
+style: 0
+size: 11.000000
+lcol: 0
+label: High
+name: 
+callback: 
+argument: 
+
+--------------------
+class: 11
+type: 0
+box: 530.000000 320.000000 60.000000 30.000000
+boxtype: 1
+colors: 47 47
+alignment: 4
+style: 0
+size: 11.000000
+lcol: 0
+label: Save
+name: save_but
+callback: filename_cb
+argument: 3
+
+--------------------
+class: 11
+type: 0
+box: 460.000000 320.000000 60.000000 30.000000
+boxtype: 1
+colors: 47 47
+alignment: 4
+style: 0
+size: 11.000000
+lcol: 0
+label: Load
+name: load_but
+callback: filename_cb
+argument: 2
+
+--------------------
+class: 11
+type: 0
+box: 410.000000 370.000000 60.000008 30.000000
+boxtype: 1
+colors: 47 47
+alignment: 4
+style: 0
+size: 11.000000
+lcol: 0
+label: Options
+name: opt_button
+callback: opt_cb
+argument: 0
+
+--------------------
+class: 11
+type: 0
+box: 480.000000 370.000000 50.000004 30.000000
+boxtype: 1
+colors: 47 47
+alignment: 4
+style: 0
+size: 11.000000
+lcol: 0
+label: Help
+name: help_button
+callback: help_cb
+argument: 0
+
+--------------------
+class: 11
+type: 0
+box: 340.000000 370.000000 60.000000 30.000000
+boxtype: 1
+colors: 47 47
+alignment: 4
+style: 1
+size: 16.000000
+lcol: 0
+label: RUN
+name: load_but
+callback: run_cb
+argument: 0
+
+--------------------
+class: 1025
+type: 0
+box: 100.000000 160.000000 209.999985 30.000000
+boxtype: 1
+colors: 47 4
+alignment: 2
+style: 0
+size: 11.000000
+lcol: 0
+label: z
+name: zmin_counter
+callback: bound_cb
+argument: 5
+
+--------------------
+class: 1025
+type: 0
+box: 320.000000 160.000000 209.999985 30.000000
+boxtype: 1
+colors: 47 4
+alignment: 1
+style: 0
+size: 11.000000
+lcol: 0
+label: 
+name: zmax_counter
+callback: bound_cb
+argument: 6
+
+--------------------
+class: 1025
+type: 0
+box: 320.000000 110.000000 209.999985 30.000000
+boxtype: 1
+colors: 47 4
+alignment: 1
+style: 0
+size: 11.000000
+lcol: 0
+label: 
+name: wmax_counter
+callback: bound_cb
+argument: 8
+
+--------------------
+class: 1025
+type: 0
+box: 100.000000 110.000000 209.999985 30.000000
+boxtype: 1
+colors: 47 4
+alignment: 2
+style: 0
+size: 11.000000
+lcol: 0
+label: w
+name: wmin_counter
+callback: bound_cb
+argument: 7
+
+=============== FORM ===============
+Name: ac4_help
+Width: 610.000000
+Height: 460.000000
+Number of Objects: 4
+
+--------------------
+class: 1
+type: 1
+box: 0.000000 0.000000 610.000000 460.000000
+boxtype: 1
+colors: 47 47
+alignment: 4
+style: 0
+size: 11.000000
+lcol: 0
+label: 
+name: 
+callback: 
+argument: 
+
+--------------------
+class: 71
+type: 0
+box: 30.000000 20.000000 540.000000 370.000000
+boxtype: 2
+colors: 47 3
+alignment: 1
+style: 0
+size: 11.000000
+lcol: 0
+label: 
+name: help_browser
+callback: 
+argument: 
+
+--------------------
+class: 2
+type: 0
+box: 110.000000 410.000000 260.000000 30.000000
+boxtype: 0
+colors: 47 47
+alignment: 2
+style: 0
+size: 20.000000
+lcol: 0
+label: Help
+name: 
+callback: 
+argument: 
+
+--------------------
+class: 11
+type: 0
+box: 470.000000 410.000000 90.000000 30.000000
+boxtype: 1
+colors: 47 47
+alignment: 4
+style: 0
+size: 11.000000
+lcol: 0
+label: Done
+name: help_done
+callback: help_cb
+argument: 2
+
+=============== FORM ===============
+Name: option_form
+Width: 200.000000
+Height: 330.000000
+Number of Objects: 12
+
+--------------------
+class: 1
+type: 1
+box: 0.000000 0.000000 200.000000 330.000000
+boxtype: 1
+colors: 47 47
+alignment: 4
+style: 0
+size: 11.000000
+lcol: 0
+label: 
+name: 
+callback: 
+argument: 
+
+--------------------
+class: 31
+type: 2
+box: 10.000000 290.000000 40.000004 30.000000
+boxtype: 2
+colors: 13 5
+alignment: 3
+style: 0
+size: 11.000000
+lcol: 0
+label: Precision
+name: dp_input
+callback: opt_cb
+argument: 1
+
+--------------------
+class: 11
+type: 0
+box: 140.000000 290.000000 50.000000 30.000000
+boxtype: 1
+colors: 47 47
+alignment: 4
+style: 0
+size: 11.000000
+lcol: 0
+label: Done
+name: opt_done
+callback: opt_cb
+argument: -1
+
+--------------------
+class: 2
+type: 0
+box: 50.000000 160.000000 90.000000 30.000000
+boxtype: 0
+colors: 47 47
+alignment: 2
+style: 1
+size: 11.000000
+lcol: 0
+label: Resolutions
+name: 
+callback: 
+argument: 
+
+--------------------
+class: 31
+type: 2
+box: 10.000000 130.000000 90.000000 30.000000
+boxtype: 2
+colors: 13 5
+alignment: 3
+style: 0
+size: 11.000000
+lcol: 0
+label: Coarse
+name: coarse_input
+callback: opt_cb
+argument: 4
+
+--------------------
+class: 31
+type: 2
+box: 10.000000 90.000000 90.000000 30.000000
+boxtype: 2
+colors: 13 5
+alignment: 3
+style: 0
+size: 11.000000
+lcol: 0
+label: Fine
+name: fine_input
+callback: opt_cb
+argument: 5
+
+--------------------
+class: 31
+type: 2
+box: 10.000000 50.000000 90.000000 30.000000
+boxtype: 2
+colors: 13 5
+alignment: 3
+style: 0
+size: 11.000000
+lcol: 0
+label: Boxes
+name: boxes_input
+callback: opt_cb
+argument: 6
+
+--------------------
+class: 31
+type: 2
+box: 10.000000 10.000000 90.000000 30.000000
+boxtype: 2
+colors: 13 5
+alignment: 3
+style: 0
+size: 11.000000
+lcol: 0
+label: edges
+name: edges_input
+callback: opt_cb
+argument: 7
+
+--------------------
+class: 12
+type: 2
+box: 10.000000 230.000000 80.000000 30.000000
+boxtype: 1
+colors: 39 3
+alignment: 4
+style: 0
+size: 11.000000
+lcol: 0
+label: Add
+name: add_but
+callback: opt_cb
+argument: 2
+
+--------------------
+class: 12
+type: 2
+box: 110.000000 230.000000 80.000000 30.000000
+boxtype: 1
+colors: 39 3
+alignment: 4
+style: 0
+size: 11.000000
+lcol: 0
+label: Replace
+name: replace_but
+callback: opt_cb
+argument: 3
+
+--------------------
+class: 2
+type: 0
+box: 50.000000 260.000000 90.000000 30.000000
+boxtype: 0
+colors: 47 47
+alignment: 2
+style: 1
+size: 11.000000
+lcol: 0
+label: Write Mode
+name: 
+callback: 
+argument: 
+
+--------------------
+class: 11
+type: 0
+box: 80.000000 195.000000 50.000000 30.000000
+boxtype: 1
+colors: 47 47
+alignment: 4
+style: 0
+size: 11.000000
+lcol: 0
+label: New
+name: opt_done
+callback: opt_cb
+argument: 10
+
+=============== FORM ===============
+Name: run_form
+Width: 410.000000
+Height: 130.000000
+Number of Objects: 5
+
+--------------------
+class: 1
+type: 1
+box: 0.000000 0.000000 410.000000 130.000000
+boxtype: 1
+colors: 47 47
+alignment: 4
+style: 0
+size: 11.000000
+lcol: 0
+label: 
+name: 
+callback: 
+argument: 
+
+--------------------
+class: 11
+type: 0
+box: 280.000000 90.000000 110.000000 30.000000
+boxtype: 1
+colors: 47 47
+alignment: 4
+style: 0
+size: 11.000000
+lcol: 0
+label: Abort
+name: abort_but
+callback: 
+argument: 
+
+--------------------
+class: 2
+type: 0
+box: 30.000000 90.000000 190.000000 30.000000
+boxtype: 0
+colors: 47 47
+alignment: 2
+style: 1
+size: 11.000000
+lcol: 0
+label: Running
+name: 
+callback: 
+argument: 
+
+--------------------
+class: 71
+type: 0
+box: 10.000000 20.000000 380.000031 60.000000
+boxtype: 2
+colors: 47 3
+alignment: 1
+style: 0
+size: 11.000000
+lcol: 0
+label: 
+name: report_brow
+callback: 
+argument: 
+
+--------------------
+class: 11
+type: 0
+box: 160.000000 90.000000 110.000000 30.000000
+boxtype: 1
+colors: 47 47
+alignment: 4
+style: 0
+size: 11.000000
+lcol: 0
+label: Show
+name: flush_but
+callback: 
+argument: 
+
+==============================
+create_the_forms

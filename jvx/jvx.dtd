@@ -1,0 +1,337 @@
+<!ENTITY document				"Document Type Definition of the JVX geometry file format.">
+
+<!ENTITY status 				"This is a release specification.">
+<!ENTITY author 				"Konrad Polthier">
+<!ENTITY url					"http://www.javaview.de/rsrc/jvx.dtd">
+<!ENTITY history_0.98_rjm	"12.03.03, (rjm) Added material for vectorField.">
+<!ENTITY history_0.98 		"01.05.00, (kp) Attribute for backface drawing of faces added.">
+
+<!ENTITY history_0.99 		"21.07.00, (kp) Attribute for number of lists added, display attributes added.">
+
+<!ENTITY history_0.99.1 	"09.09.00, (kp) Labels with attributes added.">
+
+<!ENTITY history_0.99.2 	"18.09.00, (kp) EndArrow attribute merged with existing arrow attribute of lineSet.">
+
+<!ENTITY history_0.99.3 	"21.09.00, (kp) Backface element color added.">
+
+<!ENTITY history_0.99.4 	"22.10.00, (kp) Arrows for different normal types added, attribute 'num' added to neighbours tag.">
+
+<!ENTITY history_0.99.5 	"14.11.00, (kp) Unused geometry type 'knotbook' removed since it was for testing only.">
+
+<!ENTITY history_0.99.6 	"16.12.00, (kp) New meaning of attribute 'type' of element 'textures'.">
+
+<!ENTITY history_0.99.7		"21.12.00, (kp) Attribute and (draft) element for boundaries of faceSets added.">
+
+<!ENTITY history_0.99.8		"07.01.01, (kp) Adjust usage of paragraphs in detail element to eg-models.">
+
+<!ENTITY history_0.99.9		"09.01.01, (kp) New version 2.0 of element 'description' implemented to be identical to eg-model.dtd.">
+
+<!ENTITY history_1.00		"01.02.01, (kp) Element 'description' reduced to avoid overlap of paragraph element with point element until we use ns.">
+
+<!ENTITY history_1.00.01	"02.03.01, (kp) Attribute 'backcolor' renamed to 'colorBackGlobal', individual backface colors added.">
+
+<!ENTITY history_1.01.00	"05.04.01, (kp) Element 'description' now has fully valid subset functionality of the same eg-model.dtd element.">
+
+<!ENTITY version				"1.01.00">
+
+<!ENTITY date					"05.04.01">
+
+
+
+<!ELEMENT jvx-model			(meta*,version?,title,authors?,description?,geometries)>
+
+<!ELEMENT meta					EMPTY>
+
+<!ATTLIST meta					generator CDATA #IMPLIED>				<!-- Name and version of program which generated this model file. -->
+<!ATTLIST meta					date CDATA #IMPLIED>						<!-- Date when this model file was generated. -->
+<!ELEMENT version				(#PCDATA)>									<!-- Version of this model file. -->
+
+<!ATTLIST version				type (dump|beta|final) "dump">		<!-- Status of this model file. -->
+
+<!ELEMENT title				(#PCDATA)>									<!-- Multi-word title of this model, initial letters are uppercase. -->
+
+
+<!ELEMENT authors				(author+)>									<!-- List of authors who created, computed, designed the models. -->
+<!ELEMENT author				(firstname,lastname,affiliation,email,url?)>		<!-- Contact address of this author. -->
+<!ELEMENT firstname			(#PCDATA)>									<!-- First name, middle name, and title of this author, initial letters are uppercase. -->
+<!ELEMENT lastname			(#PCDATA)>									<!-- Last name of this author, initial letters are uppercase. -->
+<!ELEMENT affiliation		(organization,address)>
+<!ELEMENT organization		(#PCDATA)>									<!-- Empty or university or company where author works, initial letters are uppercase. -->
+<!ELEMENT address				(line+)>										<!-- Postal address for surface mail, initial letters are uppercase. -->
+<!ELEMENT line					(#PCDATA)>									<!-- Separator for each address line, initial letters are uppercase. -->
+<!ELEMENT email				(#PCDATA)>									<!-- Email address of this author, all letters are lowercase. -->
+<!ELEMENT url					(#PCDATA)>									<!-- Home page of this author. -->
+
+
+<!ELEMENT description		(abstract,detail,msc2000,keywords,software)>		<!-- This element contains a subset of the same element in eg-model.dtd. -->
+																					<!-- This element remain fully valid when being copied into an eg-model description. -->
+<!ELEMENT abstract			(#PCDATA)>									<!-- One sentence should cover main ideas of this model submission. -->
+<!ELEMENT detail				(#PCDATA)>									<!-- Further detail information, for example, parameter settings used for generating the model. -->
+																					<!-- This element contains a subset of the same element in eg-model.dtd to avoid overlap with 'p' element. -->
+<!ELEMENT msc2000				(primary,secondary*)>					<!-- Mathematical Subject Classification 2000. -->
+<!ELEMENT primary				(#PCDATA)>									<!-- Main subject classification. -->
+<!ELEMENT secondary			(#PCDATA)>									<!-- Further subject classifications. -->
+<!ELEMENT keywords			(keyword+)>									<!-- List of self-defined keywords characterizing this model. -->
+<!ELEMENT keyword				(#PCDATA)>									<!-- Each keyword is self-defined, initial letters are uppercase. -->
+<!ELEMENT software			(#PCDATA)>									<!-- Software including version number which generated this geometry model. -->
+
+
+<!ELEMENT geometries			(geometry+)>								<!-- A set of different geometries. -->
+
+<!ELEMENT geometry			(((pointSet,vectorField*)|
+					 (pointSet,lineSet,vectorField*)|
+					 (pointSet,faceSet,vectorField*)|
+					 (primitive)),
+					bndbox?,center?,labelAtt?,material?)>
+
+<!ATTLIST geometry			name CDATA #IMPLIED>						<!-- Name of geometry, should be unique. -->
+
+<!ATTLIST geometry			visible (show|hide) "show">			<!-- Show geometry in a scene, or hide it. -->
+
+
+
+<!ELEMENT pointSet			(points,colors?,normals?,textures?)>
+
+<!ATTLIST pointSet			dim	CDATA #REQUIRED>					<!-- Number of components of each vertex, must be uniform for all vertices. -->
+
+<!ATTLIST pointSet			point (show|hide) "show">				<!-- Show vertices as round circles. -->
+
+<!ATTLIST pointSet			color (show|hide) "hide">				<!-- Show individual colors of each vertex. -->
+
+<!ATTLIST pointSet			normal (show|hide) "hide">				<!-- Show normal of each vertex. -->
+
+<!ATTLIST pointSet			normalArrow (show|hide) "hide">		<!-- Show arrow of vertex normals. -->
+
+<!ELEMENT lineSet				(lines,colors?,normals?)>
+
+<!ATTLIST lineSet				arrow (show|hide) "hide">				<!-- Show arrow at last vertex of line. -->
+
+<!ATTLIST lineSet				startArrow (show|hide) "hide">		<!-- Show arrow at first vertex of line. -->
+
+<!ATTLIST lineSet				line (show|hide) "show">				<!-- Show edges of line. -->
+
+<!ATTLIST lineSet				color (show|hide) "hide">				<!-- Show individual edge color of lines. -->
+
+<!ATTLIST lineSet				normal (show|hide) "hide">				<!-- Show normal of each line. -->
+
+<!ATTLIST lineSet				normalArrow (show|hide) "hide">		<!-- Show arrow of line normals. -->
+
+<!ELEMENT faceSet				(faces,neighbours?,edges?,colors?,colorsBack?,normals?,textures?,boundaries?)>
+
+<!ATTLIST faceSet				face	(show|hide) "show">				<!-- Show filled elements, i.e. face, of a surface. -->
+
+<!ATTLIST faceSet				edge	(show|hide) "show">				<!-- Show edge of elements as line. -->
+
+<!ATTLIST faceSet				color (show|hide) "hide">				<!-- Show individual colors of elements, otherwise global color is used. -->
+
+<!ATTLIST faceSet				colorBackGlobal (show|hide) "hide">	<!-- Enable and show global backface color of backfacing elements. -->
+
+<!ATTLIST faceSet				colorBackLocal (show|hide) "hide">	<!-- Enable and show individual colors of backface elements. -->
+
+<!ATTLIST faceSet				normal (show|hide) "hide">				<!-- Show normal vectors at center of elements. -->
+
+<!ATTLIST faceSet				normalArrow (show|hide) "hide">		<!-- Show arrow of element normal vectors. -->
+
+<!ATTLIST faceSet				texture (show|hide) "hide">			<!-- Show texture on surface. -->
+
+<!ATTLIST faceSet				backface (show|hide) "show">			<!-- Show backfacing elements, i.e. disable backface culling. -->
+
+<!ATTLIST faceSet				boundary (show|hide) "hide"> 			<!-- Show boundary of surface, determined by neighbour information. -->
+
+<!ELEMENT vectorField		(vectors,colors?)>
+
+<!ATTLIST vectorField		name 	CDATA #IMPLIED>
+
+<!ATTLIST vectorField		arrow (show|hide) "hide">
+
+<!ATTLIST vectorField		base 	(vertex|element) "vertex">
+
+<!ATTLIST vectorField		material (show|hide) "hide">
+
+
+<!ELEMENT points				(p*,thickness?,color?,colorTag?,labelAtt?)>
+
+<!ATTLIST points				num	CDATA #IMPLIED>
+
+<!ELEMENT p						(#PCDATA)>									<!-- Components separated by blanks -->
+
+<!ATTLIST p						name	CDATA #IMPLIED>
+
+<!ATTLIST p						tag	CDATA #IMPLIED>
+
+<!ELEMENT colors				(c*)>											<!-- Individual colors of elements. -->
+
+<!ATTLIST colors				type	(rgb|rgba|grey) "rgb">
+
+<!ATTLIST colors				num	CDATA #IMPLIED>
+
+<!ELEMENT c						(#PCDATA)>									<!-- Components separated by blanks -->
+
+<!ELEMENT colorsBack			(c*)>											<!-- Individual colors of backfacing elements. -->
+
+<!ATTLIST colorsBack			type	(rgb|rgba|grey) "rgb">
+
+<!ATTLIST colorsBack			num	CDATA #IMPLIED>
+
+<!ELEMENT normals				(n*,thickness?,length?,color?)>
+
+<!ATTLIST normals				num	CDATA #IMPLIED>
+
+<!ELEMENT n						(#PCDATA)>									<!-- Components separated by blanks -->
+
+<!ELEMENT lines				(l*,thickness?,color?,colorTag?,labelAtt?)>
+
+<!ATTLIST lines				num	CDATA #IMPLIED>
+
+<!ELEMENT l						(#PCDATA)>									<!-- Components separated by blanks -->
+
+<!ATTLIST l						name	CDATA #IMPLIED>
+
+<!ATTLIST l						tag	CDATA #IMPLIED>
+
+<!ATTLIST l						arrow (show|hide) "hide">				<!-- Not implemented yet -->
+
+<!ELEMENT faces				(f*,color?,colorBack?,colorTag?,labelAtt?)>
+
+<!ATTLIST faces				num	CDATA #IMPLIED>
+
+<!ELEMENT f						(#PCDATA)>									<!-- Components separated by blanks -->
+
+<!ATTLIST f						name	CDATA #IMPLIED>
+
+<!ATTLIST f						tag	CDATA #IMPLIED>
+
+<!ELEMENT edges				(e*,thickness?,color?,colorTag?,labelAtt?)>	<!-- Often not explicitly specified -->
+
+<!ATTLIST edges				num	CDATA #IMPLIED>
+
+<!ELEMENT e						(#PCDATA)>									<!-- Components separated by blanks -->
+
+<!ATTLIST e						name	CDATA #IMPLIED>
+
+<!ATTLIST e						tag	CDATA #IMPLIED>
+
+<!ELEMENT neighbours			(nb*)>
+
+<!ATTLIST neighbours			num	CDATA #IMPLIED>
+
+<!ELEMENT nb					(#PCDATA)>									<!-- Components separated by blanks -->
+
+<!ELEMENT vectors				(v*,thickness?,length?,color?)>
+
+<!ATTLIST vectors				num	CDATA #IMPLIED>
+
+<!ELEMENT v						(#PCDATA)>									<!-- Components separated by blanks -->
+
+<!ELEMENT textures			(t*,image?)>
+
+<!ATTLIST textures			dim	CDATA #REQUIRED>
+
+<!ATTLIST textures			num	CDATA #IMPLIED>
+
+<!ATTLIST textures			type	(image) "image">
+
+<!ELEMENT t						(#PCDATA)>									<!-- Components separated by blanks -->
+
+<!ELEMENT boundaries			(thickness?,color?,colorTag?,labelAtt?)>	<!-- Child elements are still in development -->
+
+<!ELEMENT color				(#PCDATA)>
+
+<!ATTLIST color				type	(rgb|rgba|grey) "rgb">
+
+<!ELEMENT colorBack			(#PCDATA)>
+
+<!ATTLIST colorBack			type	(rgb|rgba|grey) "rgb">
+
+<!ELEMENT colorTag			(#PCDATA)>
+
+<!ATTLIST colorTag			type	(rgb|rgba|grey) "rgb">
+
+
+
+<!ELEMENT primitive			(cube|sphere|cylinder|cone)>
+
+
+
+<!ELEMENT cube					(lowerLeft,upperRight)>
+
+<!ELEMENT lowerLeft			(p)>											<!-- Lower left vertex of hyper cube -->
+
+<!ELEMENT upperRight			(p)>											<!-- Upper right vertex of hyper cube -->
+
+
+
+<!ELEMENT sphere				(midpoint,radius)>
+
+<!ELEMENT midpoint			(p)>											<!-- Center of n-dimensional sphere -->
+
+
+
+<!ELEMENT cylinder			(bottom,top,radius*)>
+
+<!ELEMENT bottom				(p)>											<!-- Base center of n-dimensional cylinder -->
+
+<!ELEMENT top					(p)>											<!-- Top center of n-dimensional cylinder -->
+
+
+
+<!ELEMENT cone					(bottom,top,radius)>
+
+
+
+<!ELEMENT radius				(#PCDATA)>									<!-- Double value, radius of circles and spheres -->
+
+<!ELEMENT thickness			(#PCDATA)>									<!-- Double value, thickness of lines and points -->
+
+<!ELEMENT length				(#PCDATA)>									<!-- Double value, length of lines -->
+
+
+
+<!ELEMENT bndbox				(p,p)>
+
+<!ATTLIST bndbox				visible (show|hide) "show">
+
+
+
+<!ELEMENT center				(p)>
+
+<!ATTLIST center				visible (show|hide) "show">
+
+
+
+<!ELEMENT labelAtt			(xOffset?,yOffset?)>
+
+<!ATTLIST labelAtt			visible (show|hide) "show">
+
+<!ATTLIST labelAtt			horAlign (head|center|tail) "head">
+
+<!ATTLIST labelAtt			verAlign (top|middle|bottom) "top">
+
+<!ATTLIST labelAtt			font (text|fixed|header2|header4|menu) "text">
+
+<!ELEMENT xOffset				(#PCDATA)>
+
+<!ELEMENT yOffset				(#PCDATA)>
+
+
+
+<!ELEMENT material			(ambientIntensity,diffuse,emissive,shininess,specular,transparency)>
+
+<!ELEMENT ambientIntensity	(#PCDATA)>									<!-- Double value in [0.,1.] -->
+
+<!ELEMENT diffuse				(color)>
+
+<!ELEMENT emissive			(color)>
+
+<!ELEMENT shininess			(#PCDATA)>									<!-- Double value in [0.,1.] -->
+
+<!ELEMENT specular			(#PCDATA)>									<!-- Double value in [0.,1.] -->
+
+<!ELEMENT transparency		(#PCDATA)>									<!-- Double value in [0.,1.] -->
+
+
+
+<!ELEMENT image				(url)>
+
+<!ATTLIST image				repeat (no|s|t|st) "no">
+

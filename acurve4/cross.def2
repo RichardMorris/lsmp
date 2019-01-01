@@ -1,0 +1,5 @@
+# The intersection of two parametrised surfaces given by
+# (x,y,x) (z,w,w)
+x = z;
+y = w;
+x = -w;

@@ -1,0 +1,7 @@
+# whether yyparse needs an argument or not
+YYPARSE_DEF = -DYYPARSE_ARGS
+# the object file we need for flex or lex
+FLEXOBJ = flex.o
+# if flex.o is used this flag needs to be passed when compiling 
+#	eqnbase.c
+FLEX_DEF = -DUSING_FLEX

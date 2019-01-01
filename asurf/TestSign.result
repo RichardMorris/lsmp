@@ -1,0 +1,115 @@
+ 41.81      1.66     1.66  4349859     0.00     0.00  TestSignsReorder
+  6.05      2.56     0.24    35195     0.00     0.00  TestSignsCycle
+  0.25      3.97     0.01     3944     0.00     0.00  TestSigns
+  0.00      3.97     0.00     1266     0.00     0.00  TestSigns17
+  0.00      3.97     0.00      783     0.00     0.00  TestSigns10
+  0.00      3.97     0.00      783     0.00     0.00  TestSigns11
+  0.00      3.97     0.00      215     0.00     0.00  TestSigns7
+  0.00      3.97     0.00      137     0.00     0.00  TestSigns12
+  0.00      3.97     0.00      136     0.00     0.00  TestSigns13
+  0.00      3.97     0.00      134     0.00     0.00  TestSigns14
+  0.00      3.97     0.00      133     0.00     0.00  TestSigns15
+  0.00      3.97     0.00      111     0.00     0.00  TestSigns16
+  0.00      3.97     0.00       73     0.00     0.00  TestSigns4
+  0.00      3.97     0.00       65     0.00     0.00  TestSigns5
+  0.00      3.97     0.00       65     0.00     0.00  TestSigns6
+  0.00      3.97     0.00       14     0.00     0.00  TestSigns1
+  0.00      3.97     0.00       13     0.00     0.00  TestSigns2
+  0.00      3.97     0.00       12     0.00     0.00  TestSigns3
+  0.00      3.97     0.00        3     0.00     0.00  TestSigns8
+  0.00      3.97     0.00        1     0.00     0.00  TestSigns9
+                0.00    0.61    1266/1266        TestSigns17 [17]
+                0.00    0.38     783/783         TestSigns10 [19]
+                0.00    0.38     783/783         TestSigns11 [20]
+                0.00    0.07     137/137         TestSigns12 [38]
+                0.00    0.07     136/136         TestSigns13 [39]
+                0.00    0.06     134/134         TestSigns14 [41]
+                0.00    0.06     133/133         TestSigns15 [42]
+                0.00    0.05     111/111         TestSigns16 [45]
+                0.00    0.00       3/3           TestSigns8 [86]
+                0.00    0.00       1/1           TestSigns9 [89]
+                0.00    0.00       1/3944        TestSigns9 [89]
+                0.00    0.00       3/3944        TestSigns8 [86]
+                0.00    0.01      12/3944        TestSigns3 [80]
+                0.00    0.01      13/3944        TestSigns2 [79]
+                0.00    0.01      14/3944        TestSigns1 [77]
+                0.00    0.03      65/3944        TestSigns5 [51]
+                0.00    0.03      65/3944        TestSigns6 [52]
+                0.00    0.04      73/3944        TestSigns4 [49]
+                0.00    0.05     111/3944        TestSigns16 [45]
+                0.00    0.06     133/3944        TestSigns15 [42]
+                0.00    0.06     134/3944        TestSigns14 [41]
+                0.00    0.07     136/3944        TestSigns13 [39]
+                0.00    0.07     137/3944        TestSigns12 [38]
+                0.00    0.10     215/3944        TestSigns7 [33]
+                0.00    0.38     783/3944        TestSigns10 [19]
+                0.00    0.38     783/3944        TestSigns11 [20]
+                0.00    0.61    1266/3944        TestSigns17 [17]
+[8]     48.1    0.01    1.90    3944         TestSigns [8]
+                0.24    1.66   35195/35195       TestSignsCycle [9]
+                0.24    1.66   35195/35195       TestSigns [8]
+[9]     47.9    0.24    1.66   35195         TestSignsCycle [9]
+                1.66    0.00 4349859/4349859     TestSignsReorder [10]
+                1.66    0.00 4349859/4349859     TestSignsCycle [9]
+[10]    41.8    1.66    0.00 4349859         TestSignsReorder [10]
+[17]    15.4    0.00    0.61    1266         TestSigns17 [17]
+                0.00    0.61    1266/3944        TestSigns [8]
+[19]     9.6    0.00    0.38     783         TestSigns10 [19]
+                0.00    0.38     783/3944        TestSigns [8]
+[20]     9.6    0.00    0.38     783         TestSigns11 [20]
+                0.00    0.38     783/3944        TestSigns [8]
+                0.00    0.10     215/215         TestSigns7 [33]
+                0.00    0.04      73/73          TestSigns4 [49]
+                0.00    0.03      65/65          TestSigns5 [51]
+                0.00    0.03      65/65          TestSigns6 [52]
+[33]     2.6    0.00    0.10     215         TestSigns7 [33]
+                0.00    0.10     215/3944        TestSigns [8]
+[38]     1.7    0.00    0.07     137         TestSigns12 [38]
+                0.00    0.07     137/3944        TestSigns [8]
+[39]     1.7    0.00    0.07     136         TestSigns13 [39]
+                0.00    0.07     136/3944        TestSigns [8]
+[41]     1.6    0.00    0.06     134         TestSigns14 [41]
+                0.00    0.06     134/3944        TestSigns [8]
+[42]     1.6    0.00    0.06     133         TestSigns15 [42]
+                0.00    0.06     133/3944        TestSigns [8]
+[45]     1.4    0.00    0.05     111         TestSigns16 [45]
+                0.00    0.05     111/3944        TestSigns [8]
+[49]     0.9    0.00    0.04      73         TestSigns4 [49]
+                0.00    0.04      73/3944        TestSigns [8]
+[51]     0.8    0.00    0.03      65         TestSigns5 [51]
+                0.00    0.03      65/3944        TestSigns [8]
+[52]     0.8    0.00    0.03      65         TestSigns6 [52]
+                0.00    0.03      65/3944        TestSigns [8]
+                0.00    0.01      14/14          TestSigns1 [77]
+                0.00    0.01      13/13          TestSigns2 [79]
+                0.00    0.01      12/12          TestSigns3 [80]
+[77]     0.2    0.00    0.01      14         TestSigns1 [77]
+                0.00    0.01      14/3944        TestSigns [8]
+[79]     0.2    0.00    0.01      13         TestSigns2 [79]
+                0.00    0.01      13/3944        TestSigns [8]
+[80]     0.1    0.00    0.01      12         TestSigns3 [80]
+                0.00    0.01      12/3944        TestSigns [8]
+[86]     0.0    0.00    0.00       3         TestSigns8 [86]
+                0.00    0.00       3/3944        TestSigns [8]
+[89]     0.0    0.00    0.00       1         TestSigns9 [89]
+                0.00    0.00       1/3944        TestSigns [8]
+   [8] TestSigns             [146] distribute_nodes      [133] make_chains
+  [77] TestSigns1             [31] draw_box               [71] make_edge
+  [19] TestSigns10           [148] endfacet               [72] make_face
+  [20] TestSigns11            [25] evalbern1D             [81] make_face_edge
+  [38] TestSigns12            [69] evalbern2D            [159] make_facets
+  [39] TestSigns13            [27] evalbern3D             [75] make_sol
+  [41] TestSigns14            [43] find_all_edges        [137] make_sol2
+  [42] TestSigns15            [11] find_all_faces        [171] make_sol3
+  [45] TestSigns16             [5] find_box               [76] make_sub_faces
+  [17] TestSigns17            [18] find_edge               [2] marmain
+  [79] TestSigns2             [12] find_face              [96] multiplyBern2D
+  [80] TestSigns3             [21] find_sols_on_edge      [32] plot_all_facets
+  [49] TestSigns4            [196] fini_berns            [160] plot_all_node_links
+  [51] TestSigns5            [197] fini_cells            [161] plot_all_sings
+  [52] TestSigns6            [198] finiflush             [190] plot_line
+  [33] TestSigns7            [199] finioogl              [188] plot_point
+  [86] TestSigns8            [168] follow_chain           [28] plot_sol
+  [89] TestSigns9            [186] formbernstein1D       [192] print_box
+   [9] TestSignsCycle         [99] formbernstein3D       [181] print_box_brief
+  [10] TestSignsReorder       [56] free_bern1D           [193] print_chains

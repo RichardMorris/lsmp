@@ -1,0 +1,6 @@
+xx^2+yy^2+zz^2+ww^2;
+xx=z-1+r*x;
+yy=z-1-r*x;
+zz=-(z+1+r*y);
+ww=-(z+1-r*y);
+

@@ -1,0 +1,279 @@
+IIIINNNNTTTTEEEERRRRSSSSEEEECCCCTTTT((((1111))))		UUUUnnnniiii    LLLLiiiivvvv    PPPPuuuurrrreeee    MMMMaaaatttthhhhssss    SSSSiiiinnnngggg    GGGGrrrroooouuuupppp....		IIIINNNNTTTTEEEERRRRSSSSEEEECCCCTTTT((((1111))))
+
+NNNNAAAAMMMMEEEE
+	intersect - calculates the intersection of two implicitly
+		defined surfaces.
+
+SSSSYYYYNNNNOOOOPPPPSSSSIIIISSSS
+	intersect [-c coarse] [-f fine] [-F faces] [-E edges] [-p precision]
+                [-D name val] {-G|-I|-e equation|filename}
+
+DDDDEEEESSSSCCCCRRRRIIIIPPPPTTTTIIIIOOOONNNN
+	_i_n_t_e_r_s_e_c_t calculates the curve of intersection of two
+	surfaces in three dimensions. The surfaces are defined by a
+	implicit polynomial equations of the form f(x,y,z) = 0. These
+	equations are expressed in standard mathematical notation.  The
+	program normally runs interactively and is designed to work
+	well with _g_e_o_m_v_i_e_w_(_1_).
+
+SSSSTTTTAAAARRRRTTTTIIIINNNNGGGG    TTTTHHHHEEEE    PPPPRRRROOOOGGGGRRRRAAAAMMMM
+	Normally the program is started from _g_e_o_m_v_i_e_w_(_1_) by
+	selecting the IIIInnnntttteeeerrrrsssseeeecccctttt option from the applications
+	panel. The output will be fed directly into geomview.
+
+	The program can also be started by typing iiiinnnntttteeeerrrrsssseeeecccctttt on the
+	command line. Typically the name of a file defining the
+	surface will be specified on the command line. If so the output
+	will be sent to the standard output and be in _o_o_g_l_(_5_) format.
+	For example
+
+		% iiiinnnntttteeeerrrrsssseeeecccctttt _d_e_f_i_n_i_t_i_o_n >>>> _f_o_o_._o_o_g_l
+
+CCCCOOOOMMMMMMMMAAAANNNNDDDD    LLLLIIIINNNNEEEE    OOOOPPPPTTTTIIIIOOOONNNNSSSS
+        The -D option specifies the default values for the parameters,
+        they should appear in pairs of names and values.
+
+	The ----cccc, ----ffff, ----FFFF ----eeee options are used to specify
+	parameters which affect the execution, see the OTHER OPTIONS
+	section below for a discussion of their meaning. And the
+	----pppp option specifies how many decimal places are displayed.
+
+        The ----IIII option displays the windows and allows interactive use.
+        The ----GGGG is only used when running from geomview.
+        The ----hhhh option displays a brief help message.
+        The ----eeee option reads the definition from a string, which
+        should normally be enclosed in single or double quotes.
+
+RRRRUUUUNNNNNNNNIIIINNNNGGGG    TTTTHHHHEEEE    PPPPRRRROOOOGGGGRRRRAAAAMMMM
+	Equations can be read in from definition files. The file can be
+	specified either by typing the name of the file in the window
+	marked FFFFiiiilllleeee, or by pressing the LLLLooooaaaadddd button and
+	selecting the file from the directory browser which will be
+	displayed.  The definition file can be saved using the
+	SSSSaaaavvvveeee button.  Alternatively the equation can be input
+	directly by typing it in the EEEEqqqquuuuaaaattttiiiioooonnnn window. See the
+	USING THE MOUSE section below for how to operate the edit window,
+	and also SYNTAX OF EQUATIONS.
+
+	A window with the names and values of the parameters will be
+	shown. These values and those specifying the bounds of the box
+	can all be changed by pressing the arrow buttons, as well as by
+	typing in directly.
+
+	Once all the parameters have been set the RRRRUUUUNNNN button can
+	be pressed. This starts the calculations of the surface. A
+	small window appears which shows how far the calculation has
+	progressed.
+
+	Pressing the SSSShhhhoooowwww button will write out what has been
+	calculated so far, when running from geomview the partially
+	constructed surface will be shown.  Pressing control-Z from the
+	shell or sending signal 21 (TSTP) from kill(1) will do the same
+	and also report progress in the shell window before
+	interrupting.  The program can be restarted by typing _f_g
+	in the shell or sending signal 28 (CONT).  The calculations can
+	be halted completely by pressing the AAAAbbbboooorrrrtttt button, this will
+	write out the data so far.  The program can be quit by:
+	pressing control-C in the shell, sending signal 15 (TERM),
+	selecting _q_u_i_t from the window boarder menu or killing
+	the process from geomview by clicking on the name (geomview
+	version 1.2.4 or later), all these will write out the data.
+	Sending signal 9 (KILL) will end the program immediately, two
+	temporary files will be left in /usr/tmp and the data will be
+	lost.
+
+	The HHHHeeeellllpppp button brings up a help window which displays this
+	document. The QQQQuuuuiiiitttt button quits the program. 
+
+OOOOTTTTHHHHEEEERRRR    OOOOPPPPTTTTIIIIOOOONNNNSSSS
+	The OOOOppppttttiiiioooonnnn button opens an options window where the various
+	parameters can be changed. The _p_r_e_c_i_s_i_o_n is the number of
+	decimal places displayed.  When either of triangle keys on
+	either side of a parameter are pressed then the parameter is
+	changed by one unit of the least significant digit displayed.
+
+	When being called from geomview there are two _w_r_i_t_e_ _m_o_d_e_s
+	which specify what geomview objects will be created: _A_d_d
+	will create a new object every time and _R_e_p_l_a_c_e will
+	create just one object which is replaced each time the program
+	is run. Pressing the _N_e_w button will create a new object
+	but leave the write mode unchanged. The object is either named
+	"intersect" or takes the name of the definition file with the
+	possible addition of a number after the name.
+
+	When calculating the intersection the bounding box is divided
+	up into _c_o_a_r_s_e segments in each direction and hence space
+	is divided into _c_o_a_r_s_e^3 sub-boxes. Smooth pieces of the
+	intersection curve will be approximated by straight lines in
+	each of these sub-boxes. Increasing _c_o_a_r_s_e will produce
+	finer meshes.  The accuracy with which the singular points are
+	found is determined by the _f_i_n_e parameter. The accuracy
+	with which points on the edges of the sub-boxes is determined
+	by the _e_d_g_e_s parameter and the accuracy with which nodes
+	(places where one of the partial derivatives vanish) are found
+	on the faces of the box are determined by the _f_a_c_e_s
+	parameter.  All these parameters should be powers of two and
+	the program requires that _c_o_a_r_s_e < _f_i_n_e <
+	_f_a_c_e_s < _e_d_g_e_s.  These parameters greatly affect
+	execution speed and should be reduced for faster running.
+
+SSSSYYYYNNNNTTTTAAAAXXXX    OOOOFFFF    EEEEQQQQUUUUAAAATTTTIIIIOOOONNNNSSSS
+        The definition of the surface consists of five parts,
+
+        1) Two equations depending on three variables which defines
+		the two surfaces.
+
+        2) Macro definitions of the form 'mac = ...;' or fun(s,t) = ...;'
+
+        3) Specification of the names of variables and the ranges
+                they take e.g. 'x = [-1,1];'.
+
+        4) Default values for the constants e.g. 'a = 1;'.
+
+        5) Values used internally by the program e.g. 'intersect_coarse = 2;'.
+
+        The first part must be present, the other parts are optional,
+        but must be in the order specified above.
+        
+        Each equation is written in mathematical notation, consisting
+        of:- numbers, variable names, the standard operators ('+', '-',
+        '*', '/', '^' and '=') as well as bracketing with '(' and ')'.
+        The '*' for multiplication is optional, the product of variables
+        can be written as 'x y', but note that if the space was omitted
+        this expression would be treated like the single variable 'xy'.
+        The equations must contain one '=' and be terminated by a
+        semi-colon.  Names of variable start with a letter and can
+        contain letters, numbers, and the underscore '_', case is
+        significant.  For details of the general syntax of equations
+        see eqn(5).
+
+        A number of functions can be used in parts 1) and 2) these are
+        cos(x), sin(x), tan(x), acos(x),asin(x),atan(x),
+        sec(x),cosec(x),cot(x), cosh(x),sinh(x),tanh(x),
+        acosh(x),asinh(x),atanh(x), sqrt(x),exp(x),pow(x,n),ln(x).  
+        The constant Pi can also be used. Note as only polynomial equations
+	can be drawn any of these functions can only take constants
+	as parameters.
+
+	1) The equations should be an expression involving: the three
+	space variables (by default 'x', 'y' and 'z'); the names of macro
+	e.g. 'mac' or 'fun(x,y)'; a number of constants.
+
+        2) Macro's can be used. These are of two types either of the
+        form 'r = a x^2 + y', or of the form 'f(t) = a t^2'. If, say,
+        'r' or 'f(x)' appears in the any of the equations already
+        defined then 'a x^2 + y' or 'a x^2' will be substituted, note
+        in the second form the 't' in the macro definition has been replaced
+        by 'x'. Note than the macros are substituted in the equations
+        given before the macro rather than apply them to what comes
+        after as is more typical.
+
+        3) After all the macros have been substituted, the
+        equation should depend on three variables and a number of
+        constants. By default the names of the variables are 'x', 'y'
+        and 'z', but the names can be changed. For example the equation
+        'a = [-1,1];' would specify the name of the first variable to
+        be 'a', the two numbers which make up the range must be
+        present but their values are not significant.
+
+        The program works best if the bounds are chosen asymmetrically.
+        This is because planes which occur in a binary sub-division of
+        space have a special significance and the algorithm assumes that
+        the surface intersects these planes generically.  For example
+        if the bounding box is [-1,1]X[-1,1]X[-1,1] then the special
+        planes are x,y,z = -1,1,0,-1/2,1/2,... If we tried to calculate
+        the unit sphere 'x^2+y^2+z^2=1' in this box we would expect
+        problems as one of the partial derivatives vanishes on each of
+        the planes x=0, y=0, z=0. By default the bounding box is
+	[-1.14,1.03]X[-1.13,1.04]X[-1.12,1.05].
+
+	4) Any names still appearing which are not the names of the
+	variables are assumed to be constants, the program will display
+	a window where the values of these constants can be specified.
+	Default values for the constants can now be given. For example
+	'a = 1;' gives the default value for 'a' as 1.
+
+	Once the values of the constants have been given and all the
+	functions evaluated the equations should be polynomials in
+	three variables.
+
+	5) Finally values used internally by the program can be
+	specified, these are 'intersect_coarse', 'intersect_fine',
+	'intersect_faces' 'intersect_edges' and 'intersect_precision'. Which
+	specify the values coarse, fine, faces, and edges execution
+	parameters and the number of decimal places which appear.
+
+        Comments are allowed and start with a '#' and continue to the
+        end of the line. Newlines are not significant and are treated
+        like white space.
+
+        The following defines the intersection of two spheres 
+
+                # Part 1 Defining equations
+		sphere(0,0,0,r);
+		sphere(1,1,1,r);
+
+                # Macro definition
+		sphere(a,b,c,r) = (X-a)^2 + (Y-b)^2 + (Z-c)^2 - r^2;
+
+                # Variable definitions
+		X=[-3.14,3.03];
+		Y=[-3.13,3.04];
+		Z=[-3.12,3.05];
+
+                # Default values for constants
+		r = 0.9;
+
+                # Internal constants
+                intersect_coarse = 16;
+
+UUUUSSSSIIIINNNNGGGG    TTTTHHHHEEEE    MMMMOOOOUUUUSSSSEEEE
+	There are several types of objects which appear. _B_u_t_t_o_n_s
+	stick out of the form and are activated by pressing a
+	mouse button while the mouse is over the button.
+
+	_I_n_p_u_t regions are depressed into the form and coloured
+	purple. Clicking with a mouse button will select the
+	input region (showing it in a different colour) and position a
+	cursor under the mouse. Characters typed from the input will
+	appear after the cursor (for input regions displaying only a
+	number, the region must display a valid number at all time).
+	Whole regions can be selected by pressing a mouse button down,
+	holding it down while the desired region is selected and then
+	releasing it. The selected text will be highlighted and can be
+	deleted using the backspace or delete keys. Pressing the
+	'enter' key or clicking with the mouse in another part of the
+	window will finish the input.
+
+	There is also an _E_d_i_t region where the equation is
+	displayed.  This is a multi-line input and works in much the
+	same way as above. To finish editing press the escape key.
+	Two lines can be joined together by using the 'control-J'
+	key.  Holding the 'shift' key down while pressing one of the
+	cursor keys will move to the top, bottom, left or right of the
+	input.  Long lines wrap round onto the next line. Lines may be
+	hidden above the top or below the bottom of the region, these
+	can be brought into view using the cursor keys.
+
+SSSSEEEEEEEE    AAAALLLLSSSSOOOO
+	geomview(1/5), oogl(5), eqn(3), edit(3), fract(3), asurf(1),
+	Forms Library reference manual.
+	A new method for drawing algebraic surfaces, R.J.Morris,
+	(the file algsurf.tex in the source directory).
+
+BBBBUUUUGGGGSSSS
+	Problems may occur with calculating the surface if it is symmetrically
+	positioned within the box or if it contains patches where one
+	of the derivatives vanish over the whole patch. These can normally
+	be avoided by apply slight rotations or changing the bounding
+	box. Cuspidal edges can cause a tremendous slow down and are
+	not always drawn nicely. An improved version which will solve
+	these bugs is currently being worked on.
+
+AAAAUUUUTTTTHHHHOOOORRRR    AAAANNNNDDDD    CCCCRRRREEEEDDDDIIIITTTTSSSS
+	R.J.Morris,
+	Department of Pure Mathematics, University of Liverpool,
+	P.O. Box 187, Liverpool, L69 3BX, England
+	e-mail rmorris@liverpool.ac.uk
+
+	23/7/93

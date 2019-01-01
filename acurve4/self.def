@@ -1,0 +1,13 @@
+# Selfintersection of cross-cap (x,xy,y^2)
+
+x = z;
+x y = z w;
+y^2 = w^2;
+#x = X + Z; z = X - Z;
+x = X; z = Z;
+#y = Y + W; w = Y - W;
+y = Y; w = W;
+X = [-1.14,1.03];
+Y = [-1.13,1.04];
+Z = [-1.12,1.05];
+W = [-1.11,1.06];

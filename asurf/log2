@@ -1,0 +1,16 @@
+<definition name="asurf" type="asurf" opType="None">
+16 x^3 + 16 y^3 - 31 z^3 + 24 x^2 z - 48 x^2 y - 48 x y^2
++24 y^2 z - 54 sqrt(3) z^2 - 72 z = 0;
+
+<variable name="x" min="-3.1399999999999997" max="3.0300000000000002">
+<variable name="y" min="-3.13" max="3.04">
+<variable name="z" min="-4.12" max="4.05">
+<option name="coarse" value="8">
+<option name="fine" value="64">
+<option name="face" value="512">
+<option name="edge" value="4096">
+<option name="drawlines" value="false">
+<option name="timeout" value="10000">
+<option name="vrml version" value="3">
+</definition>
+

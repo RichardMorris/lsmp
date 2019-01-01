@@ -1,0 +1,3 @@
+#! /bin/sh
+
+/home/csweb1_a/cgi-bin/pfaf/lsmp/psurf/psurfCV pcurveCV
